@@ -52,8 +52,8 @@ export default {
     h2v: function(text) {
       //英数字を全角にする
       text = text.replace(/[A-Za-z0-9]/g, function(s) {return String.fromCharCode(s.charCodeAt(0) + 65248)})
-      text = text.replace(" ","　")
-      text = text.replace("ー","｜")
+      text = text.replace(/ /g,"　")
+      text = text.replace(/ー/g,"｜")
 
       //文字列の縦横の最大文字数を取得
       const height = text.split("\n").length
