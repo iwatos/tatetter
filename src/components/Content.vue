@@ -8,7 +8,7 @@
 
     <div class="sendForm">
       <textarea v-model="text" :placeholder="'こちらに文章を\n入力すると'"></textarea>
-      <textarea v-model="verticalText" :placeholder="h2v('こちらに縦書きで\n表示され\nつぶやけます')"></textarea>
+      <textarea v-model="verticalText" :placeholder="vplaceholder"></textarea>
       <br>
       <a :href="hreftext">つぶやく</a>
     </div>
@@ -33,7 +33,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      text: ""
+      text: "",
+      vplaceholder: this.h2v('こちらに縦書きで\n表示され\nつぶやけます')
     }
   },
   methods: {
@@ -101,7 +102,7 @@ export default {
     },
     hreftext: function () {
       let text = "text=" + this.verticalText.replace(/\n/g, "%0A") +"%0A%0A"
-      let url = "url=" + ""
+      let url = "url=" + "https://tatetter.netlify.com"
       let hashtags = "hashtags=" + "縦ったー"
       return "https://twitter.com/share?" + text + "&" + url + "&" + hashtags
     }
