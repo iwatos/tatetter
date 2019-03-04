@@ -7,8 +7,8 @@
     </div>
 
     <div class="sendForm">
-      <textarea v-model="text" :placeholder="'こちらに文章を\n入力すると'"></textarea>
-      <textarea v-model="verticalText" :placeholder="vplaceholder"></textarea>
+      <textarea v-model="text" :placeholder="'こちらに文章を入力すると\n下枠内で縦書きで表示され\nそのままつぶけます。'"></textarea>
+      <textarea v-model="verticalText"></textarea>
       <br>
       <a :href="hreftext">つぶやく</a>
     </div>
@@ -33,8 +33,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      text: "",
-      vplaceholder: this.h2v('こちらに縦書きで\n表示され\nつぶやけます')
+      text: ""
     }
   },
   methods: {
