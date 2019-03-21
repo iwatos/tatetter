@@ -51,7 +51,7 @@ export default {
 
     h2v: function(text) {
       //英数字を全角にする
-      text = text.replace(/[A-Za-z0-9]/g, function(s) {return String.fromCharCode(s.charCodeAt(0) + 65248)})
+      text = text.replace(/[!-~]/g, function(s) {return String.fromCharCode(s.charCodeAt(0) + 65248)})
       text = text.replace(/ /g,"　")
       text = text.replace(/ー/g,"｜")
 
@@ -93,11 +93,20 @@ export default {
       verticalText = verticalText.join("\n")
 
       return verticalText;
+    },
+
+    blankToDot: function(text){
+      let t = text.slice(0, 1)
+      if(t == "　"){
+        return "．" + text.slice(1) 
+      }
+      return text
     }
   },
   computed: {
     verticalText: function () {
-      return this.h2v(this.text)
+      let text = this.h2v(this.text)
+      return this.blankToDot(text)
     },
     hreftext: function () {
       let text = "text=" + this.verticalText.replace(/\n/g, "%0A") +"%0A%0A"
