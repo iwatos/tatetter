@@ -7,8 +7,8 @@
     </div>
 
     <div class="sendForm">
-      <textarea v-model="text" :placeholder="'こちらに文章を入力すると\n下枠内で縦書きで表示され\nそのままつぶけます。'"></textarea>
-      <textarea v-model="verticalText"></textarea>
+      <textarea v-model="text" :placeholder="'こちらに文章を入力すると'"></textarea>
+      <textarea v-model="verticalText" :placeholder="'こちらに縦書きで表示され、そのままつぶやけます'"></textarea>
       <br>
       <a :href="hreftext">つぶやく</a>
     </div>
@@ -18,8 +18,7 @@
         ＜注意事項＞<br>
         縦書きに変換される際、以下の文字が変更されます。
       <ul>
-        <li>半角英数字 → 全角英数字</li>
-        <li>半角スペース → 全角スペース</li>
+        <li>半角文字 → 全角文字</li>
         <li>ー(伸ばし棒) → ｜(パイプ)</li>
       </ul>
         また、字一つひとつの向きは変わりません。<br><br>
@@ -139,7 +138,7 @@ export default {
     border: medium solid #aaaaaa;
     line-height: 1em;
     text-align: left;
-    width: 60%;
+    width: 90%;
     height: 200px;
     margin: 10px;
     resize: vertical;
