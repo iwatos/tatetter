@@ -8,9 +8,9 @@
 
     <div class="sendForm">
       <textarea v-model="text" :placeholder="'こちらに文章を入力すると'"></textarea>
-      <textarea v-model="verticalText" :placeholder="'こちらに縦書きで表示され、そのままつぶやけます'"></textarea>
+      <textarea readonly v-model="verticalText" :placeholder="'こちらに縦書きで表示され、そのままつぶやけます'"></textarea>
       <br>
-      <a :href="hreftext">つぶやく</a>
+      <a :href="hreftext" target="_blank">つぶやく</a>
     </div>
 
     <div class="notes">
@@ -22,7 +22,7 @@
         <li>ー(伸ばし棒) → ｜(パイプ)</li>
       </ul>
         また、字一つひとつの向きは変わりません。<br><br>
-        作成者：岩都&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://iwato.netlify.com">HP</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/iwato_s">Twitter(@iwato_s)</a>
+        作成者：岩都&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://iwato.netlify.com" target="_blank">HP</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/iwato_s" target="_blank">Twitter(@iwato_s)</a>
       </p>
     </div>
   </div>
