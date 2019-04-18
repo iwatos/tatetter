@@ -7,10 +7,11 @@
     </div>
 
     <div class="sendForm">
-      <textarea v-model="text" :placeholder="'こちらに文章を入力すると'"></textarea>
-      <textarea readonly v-model="verticalText" :placeholder="'こちらに縦書きで表示され、そのままつぶやけます'"></textarea>
+      <textarea class="horizon" v-model="text" :placeholder="'こちらに文章を入力すると'"></textarea>
+      <textarea class="vertical" readonly v-model="verticalText" :placeholder="'こちらに縦書きで表示され、そのままつぶやけます'"></textarea>
       <br>
       <a :href="hreftext" target="_blank">つぶやく</a>
+      <p>文字数:{{ verticalTextLength }}</p>
     </div>
 
     <div class="notes">
@@ -174,6 +175,13 @@ export default {
       return text
     },
     /**
+      * 縦書き文字列を算出する
+      * @return {String} 縦書き文字列
+      */
+    verticalTextLength: function () {
+      return this.verticalText.length
+    },
+    /**
       * ツイートページ遷移用のURLを算出する
       * @return {String} 縦書き文字列
       */
@@ -198,7 +206,7 @@ export default {
 }
 .siteInformation {
   text-align: center;
-  margin: 40px;
+  margin: 20px;
 }
 .sendForm {
   display: block;
@@ -208,9 +216,9 @@ export default {
     border: medium solid #aaaaaa;
     line-height: 1em;
     text-align: left;
-    width: 90%;
-    height: 200px;
-    margin: 10px;
+    width: 70%;
+    max-width: 800px;
+    margin: 0 0 10px 0;
     resize: vertical;
   };
   a {
@@ -223,9 +231,23 @@ export default {
     color: #ffffff;
   };
 }
+.horizon {
+    height: 140px;
+}
+.vertical {
+    height: 250px;
+}
 .notes {
   display: flex;
 	justify-content: center;
   margin: 30px 0;
+}
+
+@media(max-width: 670px) {
+  .sendForm {
+    textarea {
+      width: 95%;
+    }
+  }
 }
 </style>
